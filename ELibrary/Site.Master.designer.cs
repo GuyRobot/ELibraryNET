@@ -33,6 +33,51 @@ namespace ELibrary
 		protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
 		/// <summary>
+		/// LinkViewBookButton control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.LinkButton LinkViewBookButton;
+
+		/// <summary>
+		/// LinkUserLoginButton control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.LinkButton LinkUserLoginButton;
+
+		/// <summary>
+		/// LinkUserSignUpButton control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.LinkButton LinkUserSignUpButton;
+
+		/// <summary>
+		/// LinkLogoutButton control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.LinkButton LinkLogoutButton;
+
+		/// <summary>
+		/// LinkCurrentUserButton control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.LinkButton LinkCurrentUserButton;
+
+		/// <summary>
 		/// MainContent control.
 		/// </summary>
 		/// <remarks>
@@ -40,5 +85,59 @@ namespace ELibrary
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+
+		/// <summary>
+		/// LinkAdminAuthorButton control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.LinkButton LinkAdminAuthorButton;
+
+		/// <summary>
+		/// LinkAuthorAdminButton control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.LinkButton LinkAuthorAdminButton;
+
+		/// <summary>
+		/// LinkAdminPublishmentButton control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.LinkButton LinkAdminPublishmentButton;
+
+		/// <summary>
+		/// LinkAdminInventoryButton control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.LinkButton LinkAdminInventoryButton;
+
+		/// <summary>
+		/// LinkAdminBookIssueButton control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.LinkButton LinkAdminBookIssueButton;
+
+		/// <summary>
+		/// LinkAdminMemberManagementButton control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.LinkButton LinkAdminMemberManagementButton;
 	}
 }
