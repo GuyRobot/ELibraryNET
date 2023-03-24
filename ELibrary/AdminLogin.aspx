@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="UserSignin.aspx.cs" Inherits="ELibrary.WebForm2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminLogin.aspx.cs" Inherits="ELibrary.WebForm3" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -13,7 +13,7 @@
                         <div class="flex">
                             <div class="w-full">
                                 <div class="text-center">
-                                    <h3 class="text-3xl font-extrabold">Member Login</h3>
+                                    <h3 class="text-3xl font-extrabold">Admin Login</h3>
                                 </div>
                             </div>
                         </div>
@@ -22,26 +22,18 @@
                             <div class="w-full">
                                 <%-- Id --%>
                                 <div class="form-group mt-8">
-                                    <asp:TextBox CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" ID="TextMemberIdBox" runat="server"
+                                    <asp:TextBox CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" ID="TextAdminIDBox" runat="server"
                                         placeholder="Member ID"></asp:TextBox>
                                 </div>
                                 <%-- Password --%>
                                 <div class="form-group mt-3">
-                                    <asp:TextBox CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" ID="TextPasswordBox" runat="server"
+                                    <asp:TextBox CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" ID="TextAdminPasswordBox" runat="server"
                                         placeholder="Password" TextMode="Password"></asp:TextBox>
                                 </div>
                                 <%-- Login Button --%>
                                 <div class="flex justify-center mt-4">
-                                    <asp:Button CssClass="cursor-pointer mx-auto px-16 py-3 bg-indigo-600 rounded-lg text-white text-sm font-extrabold" ID="LoginButton" OnClick="ButtonMemberLogin_Click" runat="server" Text="Login" />
+                                    <asp:Button CssClass="cursor-pointer mx-auto px-16 py-3 bg-indigo-600 rounded-lg text-white text-sm font-extrabold" ID="LoginButton" OnClick="ButtonAdminLogin_Click" runat="server" Text="Login" />
                                 </div>
-
-                                <%-- SignUp Button --%>
-                                <div class="flex justify-center mt-4">
-                                    <a href="UserSignUp.aspx">
-                                        <input class="cursor-pointer px-16 py-3 bg-indigo-600 rounded-lg text-white text-sm font-extrabold" type="button" value="Sign Up" />
-                                    </a>
-                                </div>
-
                             </div>
                         </div>
 

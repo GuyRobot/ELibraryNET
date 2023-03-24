@@ -54,7 +54,7 @@ namespace ELibrary
 
 		protected void ButtonLinkToAdminAuthor_Click(object sender, EventArgs e)
 		{
-			Response.Redirect("AdminAuthor.aspx");
+			Response.Redirect("AdminLogin.aspx");
 		}
 
 		protected void ButtonLinkToAuthorAdmin_Click(object sender, EventArgs e)
