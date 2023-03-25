@@ -19,10 +19,10 @@
                             </div>
                         </div>
 
-                        <div class="flex">
+                        <div class="flex my-3">
                             <div class="w-full text-center">
                                 <%-- ReSharper disable once Asp.Image --%>
-                                <img src="Assets/Images/book.png" alt="Author Image" width="64" />
+                                <img src="Assets/Images/book.png" alt="Author Image" width="64" class="mx-auto" />
                             </div>
                         </div>
 
@@ -34,17 +34,17 @@
 
                                 <div class="form-group">
                                     <div class="flex space-x-2">
-                                        <asp:TextBox CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" ID="TextBox3" runat="server"
+                                        <asp:TextBox CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" ID="TextPublisherID" runat="server"
                                             placeholder="ID">
                                         </asp:TextBox>
-                                        <asp:Button ID="Button2" CssClass="mt-1 px-3 py-2 bg-indigo-600 rounded-lg text-white text-sm" runat="server" Text="Go" />
+                                        <asp:Button ID="ButtonGo" CssClass="mt-1 px-3 py-2 bg-indigo-600 rounded-lg text-white text-sm" runat="server" OnClick="ButtonGo_Click" Text="Go" />
                                     </div>
                                 </div>
                             </div>
                             <div class="w-8/12">
                                 <label class="block text-sm font-medium text-gray-700">Publisher Name</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" ID="TextBox4" runat="server"
+                                    <asp:TextBox CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" ID="TextPublisherName" runat="server"
                                         placeholder="Publisher Name">
                                     </asp:TextBox>
                                 </div>
@@ -55,13 +55,13 @@
 
                         <div class="flex mt-3 space-x-3">
                             <div class="w-4/12">
-                                <asp:Button class="px-8 py-3 bg-indigo-600 rounded-lg text-white text-sm font-extrabold" ID="Button1" runat="server" Text="Add" />
+                                <asp:Button class="px-8 py-3 bg-indigo-600 rounded-lg text-white text-sm font-extrabold" ID="ButtonAdd" OnClick="ButtonAdd_Click" runat="server" Text="Add" />
                             </div>
                             <div class="w-4/12">
-                                <asp:Button class="px-8 py-3 bg-indigo-600 rounded-lg text-white text-sm font-extrabold" ID="Button3" runat="server" Text="Update" />
+                                <asp:Button class="px-8 py-3 bg-indigo-600 rounded-lg text-white text-sm font-extrabold" ID="ButtonUpdate" OnClick="ButtonUpdate_Click" runat="server" Text="Update" />
                             </div>
                             <div class="w-4/12">
-                                <asp:Button class="px-8 py-3 bg-indigo-600 rounded-lg text-white text-sm font-extrabold" ID="Button4" runat="server" Text="Delete" />
+                                <asp:Button class="px-8 py-3 bg-indigo-600 rounded-lg text-white text-sm font-extrabold" ID="ButtonDelete" OnClick="ButtonDelete_Click" runat="server" Text="Delete" />
                             </div>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
 
                         <div class="flex">
                             <div class="w-full">
-                                <asp:GridView class="table-bordered table table-striped" ID="GridView1" runat="server"></asp:GridView>
+                                <asp:GridView class="table-bordered table table-striped" ID="GridViewPublisher" runat="server"></asp:GridView>
                             </div>
                         </div>
                     </div>
