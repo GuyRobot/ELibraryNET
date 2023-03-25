@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ELibrary
 {
-	public partial class _Default : Page
+	public partial class HomePage : Page
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{

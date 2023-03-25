@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace ELibrary
 {
-	public partial class WebForm1 : System.Web.UI.Page
+	public partial class UserSignup : System.Web.UI.Page
 	{
 		private readonly string _strConnection = "";
 		protected void Page_Load(object sender, EventArgs e)

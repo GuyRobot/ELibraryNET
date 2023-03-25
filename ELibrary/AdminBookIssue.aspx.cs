@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace ELibrary
 {
-	public partial class WebForm6 : System.Web.UI.Page
+	public partial class AdminBookIssue : System.Web.UI.Page
 	{
 		private readonly string _strConnection = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
 

@@ -11,7 +11,7 @@ namespace ELibrary
 {
 
 
-	public partial class WebForm6
+	public partial class AdminBookIssue
 	{
 
 		/// <summary>

@@ -11,7 +11,7 @@ namespace ELibrary
 {
 
 
-	public partial class _Default
+	public partial class HomePage
 	{
 	}
 }

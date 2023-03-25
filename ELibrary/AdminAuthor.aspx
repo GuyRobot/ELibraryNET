@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminAuthor.aspx.cs" Inherits="ELibrary.WebForm5" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminAuthor.aspx.cs" Inherits="ELibrary.AdminAuthor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <script>

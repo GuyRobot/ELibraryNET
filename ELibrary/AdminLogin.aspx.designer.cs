@@ -11,7 +11,7 @@ namespace ELibrary
 {
 
 
-	public partial class WebForm3
+	public partial class AdminLogin
 	{
 
 		/// <summary>

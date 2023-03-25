@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace ELibrary
 {
-	public partial class WebForm3 : System.Web.UI.Page
+	public partial class AdminLogin : System.Web.UI.Page
 	{
 		private readonly string _strConnection = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
 
