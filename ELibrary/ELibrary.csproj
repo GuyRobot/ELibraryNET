@@ -157,6 +157,7 @@
     <Content Include="AdminBookInventory.aspx" />
     <Content Include="AdminAuthor.aspx" />
     <Content Include="AdminBookIssue.aspx" />
+    <Content Include="AdminMemberManagement.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -266,6 +267,13 @@
     </Compile>
     <Compile Include="AdminBookIssue.aspx.designer.cs">
       <DependentUpon>AdminBookIssue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminMemberManagement.aspx.cs">
+      <DependentUpon>AdminMemberManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminMemberManagement.aspx.designer.cs">
+      <DependentUpon>AdminMemberManagement.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
