@@ -155,7 +155,8 @@
     <Content Include="UserSignin.aspx" />
     <Content Include="AdminLogin.aspx" />
     <Content Include="AdminBookInventory.aspx" />
-    <Content Include="WebForm5.aspx" />
+    <Content Include="AdminAuthor.aspx" />
+    <Content Include="AdminBookIssue.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -252,12 +253,19 @@
     <Compile Include="AdminBookInventory.aspx.designer.cs">
       <DependentUpon>AdminBookInventory.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm5.aspx.cs">
-      <DependentUpon>WebForm5.aspx</DependentUpon>
+    <Compile Include="AdminAuthor.aspx.cs">
+      <DependentUpon>AdminAuthor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm5.aspx.designer.cs">
-      <DependentUpon>WebForm5.aspx</DependentUpon>
+    <Compile Include="AdminAuthor.aspx.designer.cs">
+      <DependentUpon>AdminAuthor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminBookIssue.aspx.cs">
+      <DependentUpon>AdminBookIssue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminBookIssue.aspx.designer.cs">
+      <DependentUpon>AdminBookIssue.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
