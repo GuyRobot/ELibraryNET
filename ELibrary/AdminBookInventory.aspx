@@ -69,7 +69,7 @@
                                         <asp:TextBox CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" ID="TextBookIdBox" runat="server"
                                             placeholder="ID">
                                         </asp:TextBox>
-                                        <asp:Button ID="GoButton" CssClass="mt-1 px-3 py-2 bg-indigo-600 rounded-lg text-white text-sm" OnClick="ButtonGo_Click" runat="server" Text="Go" />
+                                        <asp:Button ID="GoButton" CssClass="cursor-pointer mt-1 px-3 py-2 bg-indigo-600 rounded-lg text-white text-sm" OnClick="ButtonGo_Click" runat="server" Text="Go" />
 
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@
                                 <label class="block text-sm font-medium text-gray-700">Book Name</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" ID="TextBookNameBox" runat="server"
-                                        placeholder="Book Name" ReadOnly="True">
+                                        placeholder="Book Name">
                                     </asp:TextBox>
                                 </div>
                             </div>
@@ -102,12 +102,15 @@
                                         <asp:ListItem Text="Urdu" Value="Urdu"></asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
-                                <label class="block text-sm font-medium text-gray-700">Publish Name</label>
-                                <div class="form-group">
-                                    <asp:DropDownList CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" runat="server" ID="DropDownPublisherNameList">
-                                        <asp:ListItem Text="Publisher ." Value="Publisher ."></asp:ListItem>
-                                        <asp:ListItem Text="Publisher .." Value="Publisher .."></asp:ListItem>
-                                    </asp:DropDownList>
+                                <div class="mt-3">
+
+                                    <label class="block text-sm font-medium text-gray-700">Publish Name</label>
+                                    <div class="form-group">
+                                        <asp:DropDownList CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" runat="server" ID="DropDownPublisherNameList">
+                                            <asp:ListItem Text="Publisher ." Value="Publisher ."></asp:ListItem>
+                                            <asp:ListItem Text="Publisher .." Value="Publisher .."></asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
                                 </div>
 
                             </div>
@@ -122,7 +125,7 @@
                                     </asp:DropDownList>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group mt-3">
                                     <label class="block text-sm font-medium text-gray-700">Publish Date</label>
                                     <div class="form-group">
                                         <asp:TextBox CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" ID="TextPublishDateBox" runat="server" TextMode="Date" placeholder="Date"></asp:TextBox>
@@ -182,14 +185,14 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <asp:TextBox CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" ID="TextEditionBox" runat="server"
-                                            placeholder="State">
+                                            placeholder="Edition">
                                         </asp:TextBox>
                                     </div>
                                 </div>
                             </div>
                             <%--  --%>
                             <div class="w-4/12">
-                                <label class="block text-sm font-medium text-gray-700">Book Cost(per unit)</label>
+                                <label class="block text-sm font-medium text-gray-700">Book Cost (per unit)</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" ID="TextBookCostBox" runat="server"
                                         placeholder="Cost">
@@ -223,7 +226,7 @@
                             <div class="w-4/12">
                                 <label class="block text-sm font-medium text-gray-700">Current Stock</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" ReadOnly="True" ID="TextCurrentStockBox" runat="server"
+                                    <asp:TextBox CssClass="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-300 border px-3 py-2 text-base leading-4 m-0 outline-none" ReadOnly="True" ID="TextCurrentStockBox" runat="server"
                                         placeholder="Current Stock">
                                     </asp:TextBox>
                                 </div>
@@ -232,7 +235,7 @@
                             <div class="w-4/12">
                                 <label class="block text-sm font-medium text-gray-700">Issued Books</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" ReadOnly="True" ID="TextIssuedBox" runat="server"
+                                    <asp:TextBox CssClass="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-300 border px-3 py-2 text-base leading-4 m-0 outline-none" ReadOnly="True" ID="TextIssuedBox" runat="server"
                                         placeholder="Issued Books">
                                     </asp:TextBox>
                                 </div>
@@ -247,7 +250,7 @@
                                 <label class="block text-sm font-medium text-gray-700">Book Description</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" ID="TextBookDescriptionBox" runat="server"
-                                        placeholder="Full Postal Address" TextMode="MultiLine" Rows="2">
+                                        placeholder="Description" TextMode="MultiLine" Rows="2">
                                     </asp:TextBox>
                                 </div>
                             </div>
@@ -257,13 +260,13 @@
 
                         <div class="flex space-x-3 mt-3">
                             <div class="w-4/12">
-                                <asp:Button class="px-8 py-3 bg-indigo-600 rounded-lg text-white text-sm font-extrabold" ID="AddButton" OnClick="ButtonAdd_Click" runat="server" Text="Add" />
+                                <asp:Button class="cursor-pointer px-8 py-3 bg-indigo-600 rounded-lg text-white text-sm font-extrabold" ID="AddButton" OnClick="ButtonAdd_Click" runat="server" Text="Add" />
                             </div>
                             <div class="w-4/12">
-                                <asp:Button class="px-8 py-3 bg-indigo-600 rounded-lg text-white text-sm font-extrabold" ID="UpdateButton" OnClick="ButtonUpdate_Click" runat="server" Text="Update" />
+                                <asp:Button class="cursor-pointer px-8 py-3 bg-indigo-600 rounded-lg text-white text-sm font-extrabold" ID="UpdateButton" OnClick="ButtonUpdate_Click" runat="server" Text="Update" />
                             </div>
                             <div class="w-4/12">
-                                <asp:Button class="px-8 py-3 bg-indigo-600 rounded-lg text-white text-sm font-extrabold" ID="DeleteButton" OnClick="ButtonDelete_Click" runat="server" Text="Delete" />
+                                <asp:Button class="cursor-pointer px-8 py-3 bg-indigo-600 rounded-lg text-white text-sm font-extrabold" ID="DeleteButton" OnClick="ButtonDelete_Click" runat="server" Text="Delete" />
                             </div>
                         </div>
                     </div>
@@ -290,7 +293,8 @@
                         <div class="flex">
                             <asp:SqlDataSource ID="SqlBookInventoryDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:elibraryDBConnectionString %>" SelectCommand="SELECT * FROM [book_master_tbl]"></asp:SqlDataSource>
                             <div class="w-full">
-                                <asp:GridView class="table-bordered table table-striped" ID="GridBookInventoryView" runat="server" AutoGenerateColumns="False" DataSourceID="SqlBookInventoryDataSource">
+                                <asp:GridView class="w-full table-bordered table table-striped" ID="GridBookInventoryView" runat="server" AutoGenerateColumns="False" DataSourceID="SqlBookInventoryDataSource" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <Columns>
                                         <asp:BoundField DataField="book_id" HeaderText="ID" SortExpression="book_id" />
                                         <asp:TemplateField>
@@ -300,46 +304,68 @@
                                                         <div class="w-10/12">
                                                             <div class="flex">
                                                                 <div class="w-full">
-                                                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("book_name") %>'
-                                                                        Font-Bold="True" Font-Size="X-Large"></asp:Label>
+                                                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("book_name") %>' Font-Bold="True" Font-Size="X-Large"></asp:Label>
                                                                 </div>
                                                             </div>
-
                                                             <div class="flex">
                                                                 <div class="w-full">
                                                                     <span>Author - </span>
-                                                                    <asp:Label runat="server" Font-Bold="True" Text='<%# Eval("author_name") %>'></asp:Label>
-                                                                    <span><span>&nbsp;</span>Genre - </span>
-                                                                    <asp:Label runat="server" Text='<%# Eval("genre") %>' Font-Bold="True"></asp:Label>
-                                                                    <span>&nbsp;</span>
-                                                                    <span>Language - </span>
-                                                                    <asp:Label runat="server" Text='<%# Eval("language") %>'></asp:Label>
+                                                                    <asp:Label ID="Label2" runat="server" Font-Bold="True" Text='<%# Eval("author_name") %>'></asp:Label>
+                                                                    &nbsp;| <span><span>&nbsp;</span>Genre - </span>
+                                                                    <asp:Label ID="Label3" runat="server" Font-Bold="True" Text='<%# Eval("genre") %>'></asp:Label>
+                                                                    &nbsp;| 
+                                                   <span>Language -<span>&nbsp;</span>
+                                                       <asp:Label ID="Label4" runat="server" Font-Bold="True" Text='<%# Eval("language") %>'></asp:Label>
+                                                   </span>
                                                                 </div>
                                                             </div>
-
                                                             <div class="flex">
                                                                 <div class="w-full">
+                                                                    Publisher -
+                                                   <asp:Label ID="Label5" runat="server" Font-Bold="True" Text='<%# Eval("publisher_name") %>'></asp:Label>
+                                                                    &nbsp;| Publish Date -
+                                                   <asp:Label ID="Label6" runat="server" Font-Bold="True" Text='<%# Eval("publish_date") %>'></asp:Label>
+                                                                    &nbsp;| Pages -
+                                                   <asp:Label ID="Label7" runat="server" Font-Bold="True" Text='<%# Eval("no_of_pages") %>'></asp:Label>
+                                                                    &nbsp;| Edition -
+                                                   <asp:Label ID="Label8" runat="server" Font-Bold="True" Text='<%# Eval("edition") %>'></asp:Label>
                                                                 </div>
                                                             </div>
-
                                                             <div class="flex">
                                                                 <div class="w-full">
+                                                                    Cost -
+                                                   <asp:Label ID="Label9" runat="server" Font-Bold="True" Text='<%# Eval("book_cost") %>'></asp:Label>
+                                                                    &nbsp;| Actual Stock -
+                                                   <asp:Label ID="Label10" runat="server" Font-Bold="True" Text='<%# Eval("actual_stock") %>'></asp:Label>
+                                                                    &nbsp;| Available Stock -
+                                                   <asp:Label ID="Label11" runat="server" Font-Bold="True" Text='<%# Eval("current_stock") %>'></asp:Label>
                                                                 </div>
                                                             </div>
-
                                                             <div class="flex">
                                                                 <div class="w-full">
+                                                                    Description -
+                                                   <asp:Label ID="Label12" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Smaller" Text='<%# Eval("book_description") %>'></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="w-2/12">
-                                                            <asp:Image class="img-fluid p-2" ID="ImageBook" runat="server" ImageUrl='<%# Eval("book_img_link") %>' />
+                                                            <asp:Image class="img-fluid" ID="Image1" runat="server" ImageUrl='<%# Eval("book_img_link") %>' />
                                                         </div>
                                                     </div>
                                                 </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>
+                                    <EditRowStyle BackColor="#999999" />
+                                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                 </asp:GridView>
                             </div>
                         </div>

@@ -295,6 +295,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Assets\Images\" />
+    <Folder Include="book_inventory\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

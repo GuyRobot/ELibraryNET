@@ -14,6 +14,8 @@ namespace ELibrary
 	public partial class AdminBookInventory : System.Web.UI.Page
 	{
 		private readonly string _strConnection = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
+		private static string GLOBAL_FILEPATH;
+		private static int GLOBAL_ACTUAL_STOCK, GLOBAL_CURRENT_STOCK, GLOBAL_ISSUED_BOOKS;
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -26,14 +28,14 @@ namespace ELibrary
 
 		protected void ButtonGo_Click(object sender, EventArgs e)
 		{
-			FillAuthorPublisherValues();
+			getBookByID();
 		}
 
 		protected void ButtonAdd_Click(object sender, EventArgs e)
 		{
 			if (CheckBookExists())
 			{
-
+				Response.Write("<script>alert('Book already existed');</script>");
 			}
 			else
 			{
@@ -55,62 +57,30 @@ namespace ELibrary
 		{
 			try
 			{
-				var sqlConnection = new SqlConnection(_strConnection);
-				if (sqlConnection.State == ConnectionState.Closed)
+				SqlConnection con = new SqlConnection(_strConnection);
+				if (con.State == ConnectionState.Closed)
 				{
-					sqlConnection.Open();
+					con.Open();
 				}
-
-				var command = new SqlCommand("SELECT * FROM book_master_tbl WHERE book_id=@book_id;", sqlConnection);
-				var data = new SqlDataAdapter(command);
-				var dataTable = new DataTable();
-				data.Fill(dataTable);
-				command.Parameters.AddWithValue("@book_id", TextBookIdBox.Text.Trim());
-
-				if (dataTable.Rows.Count > 0)
-				{
-					TextBookNameBox.Text = dataTable.Rows[0]["book_name"].ToString();
-					TextPublishDateBox.Text = dataTable.Rows[0]["publish_date"].ToString();
-					TextEditionBox.Text = dataTable.Rows[0]["edition"].ToString();
-					TextBookCostBox.Text = dataTable.Rows[0]["book_cost"].ToString().Trim();
-					TextPagesBox.Text = dataTable.Rows[0]["no_of_page"].ToString().Trim();
-					TextActualStockBox.Text = dataTable.Rows[0]["actual_stock"].ToString().Trim();
-					TextCurrentStockBox.Text = dataTable.Rows[0]["current_stock"].ToString().Trim();
-					TextIssuedBox.Text = (Convert.ToInt32(dataTable.Rows[0]["actual_stock"].ToString())
-										  - Convert.ToInt32(dataTable.Rows[0]["current_stock"].ToString())).ToString();
-					TextBookDescriptionBox.Text = dataTable.Rows[0]["book_description"].ToString();
-
-					DropDownLanguageList.SelectedValue = dataTable.Rows[0]["language"].ToString();
-					DropDownAuthorNameList.SelectedValue = dataTable.Rows[0]["author_name"].ToString();
-					DropDownPublisherNameList.SelectedValue = dataTable.Rows[0]["publisher_name"].ToString();
-
-
-
-					// Genre List Box 
-					var genres = dataTable.Rows[0]["genre"].ToString().Trim().Split(',');
-					foreach (var genre in genres)
-					{
-						foreach (ListItem listItem in ListGenreBox.Items)
-						{
-							if (listItem.ToString() == genre)
-							{
-								listItem.Selected = true;
-							}
-						}
-					}
-
-				}
-				else
-				{
-
-				}
-				DropDownAuthorNameList.DataSource = dataTable;
+				SqlCommand cmd = new SqlCommand("SELECT author_name from author_master_tbl;", con);
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				DataTable dt = new DataTable();
+				da.Fill(dt);
+				DropDownAuthorNameList.DataSource = dt;
 				DropDownAuthorNameList.DataValueField = "author_name";
 				DropDownAuthorNameList.DataBind();
+
+				cmd = new SqlCommand("SELECT publisher_name from publisher_master_tbl;", con);
+				da = new SqlDataAdapter(cmd);
+				dt = new DataTable();
+				da.Fill(dt);
+				DropDownPublisherNameList.DataSource = dt;
+				DropDownPublisherNameList.DataValueField = "publisher_name";
+				DropDownPublisherNameList.DataBind();
+
 			}
-			catch (Exception e)
+			catch (Exception ex)
 			{
-				Console.WriteLine(e);
 
 			}
 		}
@@ -120,10 +90,13 @@ namespace ELibrary
 			try
 			{
 				var genres = ListGenreBox.GetSelectedIndices().Aggregate("", (current, i) => current + ListGenreBox.Items[i] + ",");
-				genres = genres.Remove(genres.Length - 1);
+				if (genres.Length > 0)
+				{
+					genres = genres.Remove(genres.Length - 1);
+				}
 
 				// ReSharper disable once RedundantAssignment
-				var filePath = "~/book_inventory/book1.png";
+				var filePath = "~/book_inventory/book_default.png";
 				var fileName = Path.GetFileName(FileUploadImage.PostedFile.FileName);
 				FileUploadImage.SaveAs(Server.MapPath("book_inventory/" + fileName));
 				filePath = "~/book_inventory/" + fileName;
@@ -137,18 +110,19 @@ namespace ELibrary
 
 				var command = new SqlCommand("INSERT INTO book_master_tbl " +
 											 "(book_id, book_name, genre, author_name, publisher_name, publish_date, language," +
-											 "edition, book_cost, no_of_page, book_description, actual_stock, current_stock, book_img_link)" +
+											 "edition, book_cost, no_of_pages, book_description, actual_stock, current_stock, book_img_link)" +
 											 "VALUES (@book_id, @book_name, @genre, @author_name, @publisher_name, @publish_date, @language," +
-											 "@edition, @book_cost, @no_of_page, @book_description, @actual_stock, @current_stock, @book_img_link)", sqlConnection);
+											 "@edition, @book_cost, @no_of_pages, @book_description, @actual_stock, @current_stock, @book_img_link)", sqlConnection);
 
 				command.Parameters.AddWithValue("@book_id", TextBookIdBox.Text.Trim());
 				command.Parameters.AddWithValue("@book_name", TextBookNameBox.Text.Trim());
 				command.Parameters.AddWithValue("@author_name", DropDownAuthorNameList.SelectedItem.Value);
 				command.Parameters.AddWithValue("@publisher_name", DropDownPublisherNameList.SelectedItem.Value);
+				command.Parameters.AddWithValue("@publish_date", TextPublishDateBox.Text.Trim());
 				command.Parameters.AddWithValue("@language", DropDownLanguageList.SelectedItem.Value);
 				command.Parameters.AddWithValue("@edition", TextEditionBox.Text.Trim());
 				command.Parameters.AddWithValue("@book_cost", TextBookCostBox.Text.Trim());
-				command.Parameters.AddWithValue("@no_of_page", TextPagesBox.Text.Trim());
+				command.Parameters.AddWithValue("@no_of_pages", TextPagesBox.Text.Trim());
 				command.Parameters.AddWithValue("@book_description", TextBookDescriptionBox.Text.Trim());
 				command.Parameters.AddWithValue("@actual_stock", TextActualStockBox.Text.Trim());
 				command.Parameters.AddWithValue("@current_stock", TextActualStockBox.Text.Trim());
@@ -181,9 +155,9 @@ namespace ELibrary
 
 					var command = new SqlCommand("UPDATE book_master_tbl SET " +
 												 "book_name=@book_name, genre=@genre, author_name=@author_name, publisher_name=@publisher_name, " +
-												 "publish_date= @publish_date, language=@language," +
-												 "edition=@edition, book_cost=@book_cost, no_of_page=@no_of_page, book_description=@book_description, " +
-												 "actual_stock=@actual_stock, current_stock=@current_stock, book_img_link=@book_img_link" +
+												 "publish_date= @publish_date, language=@language, " +
+												 "edition=@edition, book_cost=@book_cost, no_of_pages=@no_of_pages, book_description=@book_description, " +
+												 "actual_stock=@actual_stock, current_stock=@current_stock, book_img_link=@book_img_link " +
 												 "WHERE book_id=@book_id"
 												 , connection);
 
@@ -191,7 +165,7 @@ namespace ELibrary
 					genres = genres.Remove(genres.Length - 1);
 
 					// ReSharper disable once RedundantAssignment
-					var filePath = "~/book_inventory/book1.png";
+					var filePath = "~/book_inventory/default_book.png";
 					var fileName = Path.GetFileName(FileUploadImage.PostedFile.FileName);
 					FileUploadImage.SaveAs(Server.MapPath("book_inventory/" + fileName));
 					filePath = "~/book_inventory/" + fileName;
@@ -200,10 +174,11 @@ namespace ELibrary
 					command.Parameters.AddWithValue("@book_name", TextBookNameBox.Text.Trim());
 					command.Parameters.AddWithValue("@author_name", DropDownAuthorNameList.SelectedItem.Value);
 					command.Parameters.AddWithValue("@publisher_name", DropDownPublisherNameList.SelectedItem.Value);
+					command.Parameters.AddWithValue("@publish_date", TextPublishDateBox.Text.Trim());
 					command.Parameters.AddWithValue("@language", DropDownLanguageList.SelectedItem.Value);
 					command.Parameters.AddWithValue("@edition", TextEditionBox.Text.Trim());
 					command.Parameters.AddWithValue("@book_cost", TextBookCostBox.Text.Trim());
-					command.Parameters.AddWithValue("@no_of_page", TextPagesBox.Text.Trim());
+					command.Parameters.AddWithValue("@no_of_pages", TextPagesBox.Text.Trim());
 					command.Parameters.AddWithValue("@book_description", TextBookDescriptionBox.Text.Trim());
 					command.Parameters.AddWithValue("@actual_stock", TextActualStockBox.Text.Trim());
 					command.Parameters.AddWithValue("@current_stock", TextActualStockBox.Text.Trim());
@@ -219,7 +194,7 @@ namespace ELibrary
 				catch (Exception e)
 				{
 					Console.WriteLine(e);
-					throw;
+					Response.Write("<script>alert('Failed to update book');</script>");
 				}
 			}
 			else
@@ -255,8 +230,7 @@ namespace ELibrary
 					connection.Open();
 				}
 
-				var sqlCommand = new SqlCommand("SELECT * FROM book_master_tbl" +
-													   "WHERE book_id=@book_id;", connection);
+				var sqlCommand = new SqlCommand("SELECT * FROM book_master_tbl WHERE book_id=@book_id;", connection);
 				sqlCommand.Parameters.AddWithValue("@book_id", TextBookIdBox.Text.Trim());
 				var sqlDataAdapter = new SqlDataAdapter(sqlCommand);
 
@@ -276,5 +250,67 @@ namespace ELibrary
 
 			}
 		}
+
+		private void getBookByID()
+		{
+			try
+			{
+				SqlConnection con = new SqlConnection(_strConnection);
+				if (con.State == ConnectionState.Closed)
+				{
+					con.Open();
+				}
+				SqlCommand cmd = new SqlCommand("SELECT * from book_master_tbl WHERE book_id='" + TextBookIdBox.Text.Trim() + "';", con);
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				DataTable dt = new DataTable();
+				da.Fill(dt);
+				if (dt.Rows.Count >= 1)
+				{
+					TextBookNameBox.Text = dt.Rows[0]["book_name"].ToString();
+					TextPublishDateBox.Text = dt.Rows[0]["publish_date"].ToString();
+					TextEditionBox.Text = dt.Rows[0]["edition"].ToString();
+					TextBookCostBox.Text = dt.Rows[0]["book_cost"].ToString().Trim();
+					TextPagesBox.Text = dt.Rows[0]["no_of_pages"].ToString().Trim();
+					TextActualStockBox.Text = dt.Rows[0]["actual_stock"].ToString().Trim();
+					TextCurrentStockBox.Text = dt.Rows[0]["current_stock"].ToString().Trim();
+					TextBookDescriptionBox.Text = dt.Rows[0]["book_description"].ToString();
+					TextIssuedBox.Text = "" + (Convert.ToInt32(dt.Rows[0]["actual_stock"].ToString()) - Convert.ToInt32(dt.Rows[0]["current_stock"].ToString()));
+
+					DropDownLanguageList.SelectedValue = dt.Rows[0]["language"].ToString().Trim();
+					DropDownPublisherNameList.SelectedValue = dt.Rows[0]["publisher_name"].ToString().Trim();
+					DropDownAuthorNameList.SelectedValue = dt.Rows[0]["author_name"].ToString().Trim();
+
+					ListGenreBox.ClearSelection();
+					string[] genre = dt.Rows[0]["genre"].ToString().Trim().Split(',');
+					for (int i = 0; i < genre.Length; i++)
+					{
+						for (int j = 0; j < ListGenreBox.Items.Count; j++)
+						{
+							if (ListGenreBox.Items[j].ToString() == genre[i])
+							{
+								ListGenreBox.Items[j].Selected = true;
+
+							}
+						}
+					}
+
+					GLOBAL_ACTUAL_STOCK = Convert.ToInt32(dt.Rows[0]["actual_stock"].ToString().Trim());
+					GLOBAL_CURRENT_STOCK = Convert.ToInt32(dt.Rows[0]["current_stock"].ToString().Trim());
+					GLOBAL_ISSUED_BOOKS = GLOBAL_ACTUAL_STOCK - GLOBAL_CURRENT_STOCK;
+					GLOBAL_FILEPATH = dt.Rows[0]["book_img_link"].ToString();
+
+				}
+				else
+				{
+					Response.Write("<script>alert('Invalid Book ID');</script>");
+				}
+
+			}
+			catch (Exception ex)
+			{
+
+			}
+		}
+
 	}
 }
