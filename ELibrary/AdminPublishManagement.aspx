@@ -80,7 +80,7 @@
                         <div class="flex">
                             <div class="w-full">
                                 <div class="text-center">
-                                    <h4>Author List</h4>
+                                    <h4>Publisher List</h4>
                                 </div>
                             </div>
                         </div>

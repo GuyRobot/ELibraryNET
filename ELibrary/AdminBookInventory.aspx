@@ -28,9 +28,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="w-full px-8 py-4">
-        <div class="flex space-x-6">
+        <div class="flex flex-col">
             <%-- Left Panel --%>
-            <div class="w-5/12">
+            <div class="w-11/12 mx-auto">
 
                 <%--  --%>
                 <div class="shadow border rounded-lg px-8 py-4">
@@ -273,7 +273,7 @@
             </div>
 
             <%-- Right Panel --%>
-            <div class="w-7/12">
+            <div class="w-11/12 mx-auto mt-4">
 
                 <%--  --%>
                 <div class="shadow border rounded-lg px-8 py-4">
@@ -283,14 +283,6 @@
                             <div class="w-full">
                                 <div class="text-center">
                                     <h4>Book Inventory</h4>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex">
-                            <div class="w-full">
-                                <div class="text-center">
-                                    <hr />
                                 </div>
                             </div>
                         </div>
@@ -353,6 +345,9 @@
                         </div>
                     </div>
                 </div>
+
+                <a href="/" class="hover:text-indigo-600 text-indigo-500 text-sm italic mt-3 block">Back to home</a>
+
             </div>
         </div>
     </div>

@@ -133,14 +133,6 @@
                         </div>
 
                         <div class="flex">
-                            <div class="w-full">
-                                <div class="text-center">
-                                    <hr />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex">
                             <asp:SqlDataSource ID="SqlBookIssueDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:elibraryDBConnectionString %>' SelectCommand="SELECT * FROM [book_issue_tbl]"></asp:SqlDataSource>
                             <div class="w-full">
                                 <asp:GridView class="table-bordered table table-striped" OnRowDataBound="GridBookIssueView_OnRowBound" ID="GridBookIssueView" runat="server" AutoGenerateColumns="False" DataSourceID="SqlBookIssueDataSource">

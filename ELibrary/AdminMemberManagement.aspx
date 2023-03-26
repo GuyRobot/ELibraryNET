@@ -13,9 +13,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="w-full px-8 py-4">
-        <div class="flex space-x-6">
+        <div class="flex flex-col">
             <%-- Left Panel --%>
-            <div class="w-5/12">
+            <div class="w-11/12 mx-auto">
 
                 <%--  --%>
                 <div class="shadow border rounded-lg px-6 py-4">
@@ -187,10 +187,10 @@
             </div>
 
             <%-- Right Panel --%>
-            <div class="w-6/12">
+            <div class="w-11/12 mx-auto">
 
                 <%--  --%>
-                <div class="shadow border rounded-lg px-6 py-4">
+                <div class="shadow border rounded-lg px-6 w-full py-4">
                     <div class="card-body">
 
                         <div class="flex">
@@ -204,7 +204,8 @@
                         <div class="flex mt-3">
                             <asp:SqlDataSource ID="SqlDataMemberSource" runat="server" ConnectionString="<%$ ConnectionStrings:elibraryDBConnectionString %>" SelectCommand="SELECT * FROM [member_master_tbl]"></asp:SqlDataSource>
                             <div class="w-full">
-                                <asp:GridView class="table-bordered table table-striped" DataSourceID="SqlDataMemberSource" ID="GridMemberView" runat="server" AutoGenerateColumns="False">
+                                <asp:GridView class="w-full table-bordered table table-striped mx-auto" DataSourceID="SqlDataMemberSource" ID="GridMemberView" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <Columns>
                                         <asp:BoundField DataField="full_name" HeaderText="Name" SortExpression="full_name" />
                                         <asp:BoundField DataField="dob" HeaderText="DOB" SortExpression="dob" />
@@ -218,6 +219,17 @@
                                         <asp:BoundField DataField="password" HeaderText="Password" SortExpression="password" />
                                         <asp:BoundField DataField="account_status" HeaderText="Status" SortExpression="account_status" />
                                     </Columns>
+
+                                    <EditRowStyle BackColor="#999999" />
+                                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
 
                                 </asp:GridView>
                             </div>
