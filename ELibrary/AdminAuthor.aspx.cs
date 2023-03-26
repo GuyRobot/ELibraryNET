@@ -44,7 +44,7 @@ namespace ELibrary
 					command.ExecuteNonQuery();
 					sqlConnection.Close();
 
-					Response.Write("<script>alert('Author added Successfully');</script>");
+					Response.Write("<script>alert('Author added successfully');</script>");
 
 					ClearForm();
 					GridAdminAuthorDataView.DataBind();
@@ -70,15 +70,14 @@ namespace ELibrary
 						sqlConnection.Open();
 					}
 
-					SqlCommand command = new SqlCommand("UPDATE author_master_tbl" +
-														"SET author_name=@author_name WHERE" +
-														"author_id=@author_id", sqlConnection);
+					SqlCommand command = new SqlCommand("UPDATE author_master_tbl SET author_name=@author_name WHERE author_id=@author_id", sqlConnection);
 					command.Parameters.AddWithValue("@author_id", TextAuthorIDBox.Text.Trim());
+					command.Parameters.AddWithValue("@author_name", TextAdminNameBox.Text.Trim());
 
 					command.ExecuteNonQuery();
 					sqlConnection.Close();
 
-					Response.Write("<script>alert('Author Update Successfully');</script>");
+					Response.Write("<script>alert('Author update successfully');</script>");
 
 					ClearForm();
 					GridAdminAuthorDataView.DataBind();
@@ -86,12 +85,12 @@ namespace ELibrary
 				catch (Exception exception)
 				{
 					Console.WriteLine(exception);
-					Response.Write("<script>alert('Failed to Update Author');</script>");
+					Response.Write("<script>alert('Failed to update author');</script>");
 				}
 			}
 			else
 			{
-				Response.Write("<script>alert('Author not exists. Please try again');</script>");
+				Response.Write("<script>alert('Author does not exists. Please try again');</script>");
 			}
 		}
 
@@ -108,14 +107,13 @@ namespace ELibrary
 						sqlConnection.Open();
 					}
 
-					SqlCommand command = new SqlCommand("DELETE FROM author_master_tbl" +
-														"WHERE author_id=@author_id", sqlConnection);
+					SqlCommand command = new SqlCommand("DELETE FROM author_master_tbl WHERE author_id=@author_id", sqlConnection);
 					command.Parameters.AddWithValue("@author_id", TextAuthorIDBox.Text.Trim());
 
 					command.ExecuteNonQuery();
 					sqlConnection.Close();
 
-					Response.Write("<script>alert('Author Delete Successfully');</script>");
+					Response.Write("<script>alert('Author delete successfully');</script>");
 
 					ClearForm();
 					GridAdminAuthorDataView.DataBind();
@@ -123,12 +121,12 @@ namespace ELibrary
 				catch (Exception exception)
 				{
 					Console.WriteLine(exception);
-					Response.Write("<script>alert('Failed to Delete Author');</script>");
+					Response.Write("<script>alert('Failed to delete author');</script>");
 				}
 			}
 			else
 			{
-				Response.Write("<script>alert('Author not exists. Please try again');</script>");
+				Response.Write("<script>alert('Author does not exists. Please try again');</script>");
 			}
 		}
 
@@ -142,8 +140,7 @@ namespace ELibrary
 					connection.Open();
 				}
 
-				SqlCommand sqlCommand = new SqlCommand("SELECT * FROM author_master_tbl" +
-													   "WHERE author_id=@author_id;", connection);
+				SqlCommand sqlCommand = new SqlCommand("SELECT * FROM author_master_tbl WHERE author_id=@author_id;", connection);
 				sqlCommand.Parameters.AddWithValue("@author_id", TextAuthorIDBox.Text.Trim());
 				SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
 
@@ -174,8 +171,8 @@ namespace ELibrary
 					connection.Open();
 				}
 
-				SqlCommand sqlCommand = new SqlCommand("SELECT * FROM author_master_tbl" +
-													   "WHERE author_id='" + TextAuthorIDBox.Text.Trim() + "';", connection);
+				SqlCommand sqlCommand = new SqlCommand("SELECT * FROM author_master_tbl WHERE author_id=@author_id;", connection);
+				sqlCommand.Parameters.AddWithValue("@author_id", TextAuthorIDBox.Text.Trim());
 				SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
 
 				DataTable data = new DataTable();
