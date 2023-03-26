@@ -59,7 +59,7 @@ namespace ELibrary
 
 		protected void ButtonLinkToAuthorAdmin_Click(object sender, EventArgs e)
 		{
-			Response.Redirect("UserSignUp.aspx");
+			Response.Redirect("AdminAuthor.aspx");
 		}
 
 		protected void ButtonLinkToAdminBookInventory_Click(object sender, EventArgs e)
