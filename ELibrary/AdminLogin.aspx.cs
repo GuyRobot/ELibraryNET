@@ -31,15 +31,14 @@ namespace ELibrary
 				}
 
 				SqlCommand command = new SqlCommand(
-					"SELECT * FROM admin_tbl WHERE " +
-					"member_id= @member_id" +
+					"SELECT * FROM admin_login_tbl WHERE " +
+					"username=@username " +
 					"AND password= @password;", sqlConnection);
 
-				SqlDataReader dataReader = command.ExecuteReader();
-
-				command.Parameters.AddWithValue("@member_id", TextAdminIDBox.Text.Trim());
+				command.Parameters.AddWithValue("@username", TextAdminIDBox.Text.Trim());
 				command.Parameters.AddWithValue("@password", TextAdminPasswordBox.Text.Trim());
 
+				SqlDataReader dataReader = command.ExecuteReader();
 				if (dataReader.HasRows)
 				{
 					while (dataReader.Read())
@@ -49,7 +48,7 @@ namespace ELibrary
 						Session["role"] = "admin";
 					}
 
-					Response.Redirect("HomePage.aspx");
+					Response.Redirect("/");
 				}
 				else
 				{
