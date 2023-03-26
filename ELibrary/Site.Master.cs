@@ -115,7 +115,7 @@ namespace ELibrary
 
 			LinkLogoutButton.Visible = true;
 			LinkCurrentUserButton.Visible = true;
-			LinkCurrentUserButton.Text = "Hello" + Session["fullname"];
+			LinkCurrentUserButton.Text = "Hello, " + Session["fullname"];
 
 			LinkAdminAuthorButton.Visible = true;
 			LinkAuthorAdminButton.Visible = false;

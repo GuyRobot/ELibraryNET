@@ -12,7 +12,7 @@ namespace ELibrary
 {
 	public partial class UserSignup : System.Web.UI.Page
 	{
-		private readonly string _strConnection = "";
+		private readonly string _strConnection = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
 		protected void Page_Load(object sender, EventArgs e)
 		{
 
@@ -65,7 +65,7 @@ namespace ELibrary
 				cmd.ExecuteNonQuery();
 				connection.Close();
 
-				Response.Write("<script>alert('Sign Up Successful. Now You Can Login In User Login');</script>");
+				Response.Write("<script>alert('Sign up successful. Now you can login in user login page');</script>");
 
 			}
 			catch (Exception exception)

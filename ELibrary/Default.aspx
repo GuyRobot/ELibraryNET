@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="ELibrary._Default" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ELibrary._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -13,15 +13,15 @@
                                 <span>👋</span>
                                 <div class='ml-4'>
                                     <p class='p-text'>Hello, I am</p>
-                                    <h1 class='text-4xl font-extrabold text-center text-gray-900 capitalize'>UdoTask</h1>
+                                    <h1 class='text-4xl font-extrabold text-center text-gray-900 capitalize'>ELibrary</h1>
                                 </div>
                             </div>
                             <div class='px-8 py-4 bg-white rounded-xl flex-col mt-12 w-auto shadow-sm flex justify-center items-center'>
                                 <p class='text-sm text-gray-600 w-full text-right'>
-                                    <span>The productivity app</span>
+                                    <span>The book library app</span>
                                 </p>
                                 <p class='text-sm text-gray-600 w-full text-right'>
-                                    <span>to keep track of your tasks</span>
+                                    <span>to keep track of your books</span>
                                 </p>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
 
                 <div class='flex-1 h-full flex justify-end items-end relative'>
                     <div class='w-full invisible lg:visible absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 px-8 z-10'>
-                        <h1 class='text-6xl text-center font-black'>The UdoTask App</h1>
+                        <h1 class='text-6xl text-center font-black'>The ELibrary Web</h1>
                         <p class='mt-8 w-1/2 text-2xl text-center mx-auto'>Want to keep track your events. Try UdoTask to help you write for enjoying your moments</p>
                         <div class='mx-auto mt-8 w-48'>
                             <playbutton />

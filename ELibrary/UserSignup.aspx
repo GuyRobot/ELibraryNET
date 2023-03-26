@@ -158,7 +158,7 @@
                         <div class="flex mt-8">
                             <div class="w-full">
                                 <div class="form-group text-center">
-                                    <asp:Button class="px-16 py-3 bg-indigo-600 rounded-lg text-white text-sm font-extrabold" ID="SignUpButton" runat="server" Text="SignUp" OnClick="ButtonSignUp_Click" />
+                                    <asp:Button class="cursor-pointer px-16 py-3 bg-indigo-600 rounded-lg text-white text-sm font-extrabold" ID="SignUpButton" runat="server" Text="SignUp" OnClick="ButtonSignUp_Click" />
                                 </div>
                             </div>
                         </div>
@@ -166,7 +166,7 @@
                     </div>
                 </div>
 
-                <a href="Homepage.aspx" class="hover:text-indigo-600 text-indigo-500 text-sm italic mt-3 block">Back to home</a>
+                <a href="/" class="hover:text-indigo-600 text-indigo-500 text-sm italic mt-3 block">Back to home</a>
                 <br />
             </div>
         </div>

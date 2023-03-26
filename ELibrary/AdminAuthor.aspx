@@ -80,7 +80,7 @@
                     </div>
                 </div>
 
-                <a href="Homepage.aspx" class="text-indigo-600 mt-2 block">Back</a>
+                <a href="/" class="text-indigo-600 mt-2 block">Back</a>
             </div>
 
             <%-- Right Panel --%>

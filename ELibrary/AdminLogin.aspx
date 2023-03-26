@@ -40,7 +40,7 @@
                     </div>
                 </div>
 
-                <a href="Homepage.aspx" class="hover:text-indigo-600 text-indigo-500 text-sm italic mt-3 block">Back to home</a>
+                <a href="/" class="hover:text-indigo-600 text-indigo-500 text-sm italic mt-3 block">Back to home</a>
                 <br />
             </div>
         </div>

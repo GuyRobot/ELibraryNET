@@ -12,7 +12,7 @@ namespace ELibrary
 {
 	public partial class UserSignin : System.Web.UI.Page
 	{
-		private readonly string _strConnection = "";
+		private readonly string _strConnection = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
