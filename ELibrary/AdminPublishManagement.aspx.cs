@@ -45,7 +45,7 @@ namespace ELibrary
 					command.ExecuteNonQuery();
 					sqlConnection.Close();
 
-					Response.Write("<script>alert('Publisher added Successfully');</script>");
+					Response.Write("<script>alert('Publisher added successfully');</script>");
 
 					ClearForm();
 					GridViewPublisher.DataBind();
@@ -71,10 +71,9 @@ namespace ELibrary
 						sqlConnection.Open();
 					}
 
-					SqlCommand command = new SqlCommand("UPDATE publisher_master_tbl" +
-														"SET publisher_name=@publisher_name WHERE" +
-														"publisher_id=@publisher_id", sqlConnection);
+					SqlCommand command = new SqlCommand("UPDATE publisher_master_tbl SET publisher_name=@publisher_name WHERE publisher_id=@publisher_id", sqlConnection);
 					command.Parameters.AddWithValue("@publisher_id", TextPublisherID.Text.Trim());
+					command.Parameters.AddWithValue("@publisher_name", TextPublisherName.Text.Trim());
 
 					command.ExecuteNonQuery();
 					sqlConnection.Close();
@@ -109,8 +108,7 @@ namespace ELibrary
 						sqlConnection.Open();
 					}
 
-					SqlCommand command = new SqlCommand("DELETE FROM publisher_master_tbl" +
-														"WHERE publisher_id=@publisher_id", sqlConnection);
+					SqlCommand command = new SqlCommand("DELETE FROM publisher_master_tbl WHERE publisher_id=@publisher_id", sqlConnection);
 					command.Parameters.AddWithValue("@publisher_id", TextPublisherID.Text.Trim());
 
 					command.ExecuteNonQuery();
@@ -143,8 +141,7 @@ namespace ELibrary
 					connection.Open();
 				}
 
-				SqlCommand sqlCommand = new SqlCommand("SELECT * FROM publisher_master_tbl" +
-													   "WHERE publisher_id=@publisher_id;", connection);
+				SqlCommand sqlCommand = new SqlCommand("SELECT * FROM publisher_master_tbl WHERE publisher_id=@publisher_id;", connection);
 				sqlCommand.Parameters.AddWithValue("@publisher_id", TextPublisherID.Text.Trim());
 
 				SqlDataReader reader = sqlCommand.ExecuteReader();
@@ -190,13 +187,12 @@ namespace ELibrary
 					connection.Open();
 				}
 
-				SqlCommand sqlCommand = new SqlCommand("DELETE FROM publisher_master_tbl" +
-													   "WHERE publisher_id=@publisher_id;", connection);
+				SqlCommand sqlCommand = new SqlCommand("DELETE FROM publisher_master_tbl WHERE publisher_id=@publisher_id;", connection);
 				sqlCommand.Parameters.AddWithValue("@publisher_id", TextPublisherID.Text.Trim());
 
 				sqlCommand.ExecuteNonQuery();
 
-				Response.Write("<script>alert('DELETE SUCCESSFUL');</script>");
+				Response.Write("<script>alert('Delete successfully');</script>");
 
 				GridViewPublisher.DataBind();
 
@@ -227,8 +223,7 @@ namespace ELibrary
 					connection.Open();
 				}
 
-				SqlCommand sqlCommand = new SqlCommand("SELECT * FROM publisher_master_tbl" +
-													   "WHERE publisher_id=@publisher_id;", connection);
+				SqlCommand sqlCommand = new SqlCommand("SELECT * FROM publisher_master_tbl WHERE publisher_id=@publisher_id;", connection);
 
 				sqlCommand.Parameters.AddWithValue("@publisher_id", TextPublisherID.Text.Trim());
 				SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
