@@ -37,6 +37,12 @@ namespace ELibrary
 
 		}
 
+
+		protected void LinkViewBookButton_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("ViewBooks.aspx");
+		}
+
 		protected void ButtonLinkToLogin_Click(object sender, EventArgs e)
 		{
 			Response.Redirect("UserSignin.aspx");

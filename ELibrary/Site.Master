@@ -38,7 +38,7 @@
                 <ul class="flex flex-1 justify-end items-center">
                     <li class="nav-item active group flex flex-col justify-center items-center">
                         <div class="group-hover:bg-indigo-600 w-[5px] h-[5px] rounded-full" style="width: 5px; height: 5px"></div>
-                        <asp:LinkButton class="nav-link text-none mx-2 text-sm flex-col uppercase transition-all duration-300 hover:text-indigo-600" ID="LinkViewBookButton"
+                        <asp:LinkButton class="nav-link text-none mx-2 text-sm flex-col uppercase transition-all duration-300 hover:text-indigo-600" ID="LinkViewBookButton" OnClick="LinkViewBookButton_Click"
                             runat="server">Books</asp:LinkButton>
                     </li>
                     <li class="nav-item active group flex flex-col justify-center items-center">

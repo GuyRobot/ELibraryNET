@@ -161,6 +161,7 @@
     <Content Include="AdminMemberManagement.aspx" />
     <Content Include="AdminPublishManagement.aspx" />
     <Content Include="UserInfo.aspx" />
+    <Content Include="ViewBooks.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -298,6 +299,13 @@
     </Compile>
     <Compile Include="UserInfo.aspx.designer.cs">
       <DependentUpon>UserInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewBooks.aspx.cs">
+      <DependentUpon>ViewBooks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewBooks.aspx.designer.cs">
+      <DependentUpon>ViewBooks.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
