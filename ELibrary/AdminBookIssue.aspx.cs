@@ -118,21 +118,20 @@ namespace ELibrary
 
 				command.ExecuteNonQuery();
 
-				command = new SqlCommand("UPDATE book_master_tbl SET current_stock = current_stock - 1" +
-										 "WHERE book_id=@book_id");
+				command = new SqlCommand("UPDATE book_master_tbl SET current_stock = current_stock - 1 WHERE book_id=@book_id", sqlConnection);
 				command.Parameters.AddWithValue("@book_id", TextBookIDBox.Text.Trim());
 
 				command.ExecuteNonQuery();
 				sqlConnection.Close();
 
-				Response.Write("<script>alert('Author added Successfully');</script>");
+				Response.Write("<script>alert('Issued book successfully');</script>");
 
 				GridBookIssueView.DataBind();
 			}
 			catch (Exception exception)
 			{
 				Console.WriteLine(exception);
-				Response.Write("<script>alert('Failed to add author');</script>");
+				Response.Write("<script>alert('Failed to issue book');</script>");
 			}
 		}
 
@@ -146,8 +145,7 @@ namespace ELibrary
 					connection.Open();
 				}
 
-				var sqlCommand = new SqlCommand("SELECT * FROM book_master_tbl" +
-													   "WHERE book_id=@book_id AND current_stock > 0;", connection);
+				var sqlCommand = new SqlCommand("SELECT * FROM book_master_tbl WHERE book_id=@book_id AND current_stock > 0;", connection);
 				sqlCommand.Parameters.AddWithValue("@book_id", TextBookIDBox.Text.Trim());
 
 				var sqlDataAdapter = new SqlDataAdapter(sqlCommand);
@@ -182,8 +180,7 @@ namespace ELibrary
 					connection.Open();
 				}
 
-				var sqlCommand = new SqlCommand("SELECT * FROM book_issue_tbl" +
-												"WHERE book_id=@book_id AND member_id=@member_id;", connection);
+				var sqlCommand = new SqlCommand("SELECT * FROM book_issue_tbl WHERE book_id=@book_id AND member_id=@member_id;", connection);
 
 				sqlCommand.Parameters.AddWithValue("@book_id", TextBookIDBox.Text.Trim());
 				sqlCommand.Parameters.AddWithValue("@member_id", TextMemberIDBox.Text.Trim());
@@ -221,8 +218,7 @@ namespace ELibrary
 					sqlConnection.Open();
 				}
 
-				SqlCommand command = new SqlCommand("DELETE FROM book_issue_tbl WHERE " +
-													"book_id=@book_id AND member_id=@member_id", sqlConnection);
+				SqlCommand command = new SqlCommand("DELETE FROM book_issue_tbl WHERE book_id=@book_id AND member_id=@member_id", sqlConnection);
 
 				command.Parameters.AddWithValue("@book_id", TextBookIDBox.Text.Trim());
 				command.Parameters.AddWithValue("@member_id", TextMemberIDBox.Text.Trim());
@@ -231,8 +227,7 @@ namespace ELibrary
 
 				if (result > 0)
 				{
-					command = new SqlCommand("UPDATE book_master_tbl SET current_stock = current_stock + 1" +
-											 "WHERE book_id=@book_id");
+					command = new SqlCommand("UPDATE book_master_tbl SET current_stock = current_stock + 1 WHERE book_id=@book_id", sqlConnection);
 					command.Parameters.AddWithValue("@book_id", TextBookIDBox.Text.Trim());
 
 					command.ExecuteNonQuery();
@@ -240,14 +235,14 @@ namespace ELibrary
 
 				sqlConnection.Close();
 
-				Response.Write("<script>alert('Author added Successfully');</script>");
+				Response.Write("<script>alert('Return book successfully');</script>");
 
 				GridBookIssueView.DataBind();
 			}
 			catch (Exception exception)
 			{
 				Console.WriteLine(exception);
-				Response.Write("<script>alert('Failed to add author');</script>");
+				Response.Write("<script>alert('Failed to return book');</script>");
 			}
 		}
 	}
