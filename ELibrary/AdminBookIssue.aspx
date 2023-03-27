@@ -21,7 +21,7 @@
 
                         <div class="flex">
                             <div class="w-full text-center">
-                                <h4>Book Issue</h4>
+                                <h4 class="text-3xl font-extrabold">Book Issue</h4>
                             </div>
                         </div>
 
@@ -127,7 +127,7 @@
                         <div class="flex">
                             <div class="w-full">
                                 <div class="text-center">
-                                    <h4>Issued Book List</h4>
+                                    <h4 class="text-3xl font-extrabold">Issued Book List</h4>
                                 </div>
                             </div>
                         </div>

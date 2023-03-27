@@ -38,7 +38,7 @@
 
                         <div class="flex">
                             <div class="w-full text-center">
-                                <h4>Book Detail</h4>
+                                <h4 class="text-3xl font-extrabold">Book Detail</h4>
                             </div>
                         </div>
 
@@ -285,7 +285,7 @@
                         <div class="flex">
                             <div class="w-full">
                                 <div class="text-center">
-                                    <h4>Book Inventory</h4>
+                                    <h4 class="text-3xl font-extrabold">Book Inventory</h4>
                                 </div>
                             </div>
                         </div>

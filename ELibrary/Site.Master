@@ -34,7 +34,9 @@
         <div>
             <nav class='w-full flex justify-between items-center px-4 py-6'>
                 <div class='flex justify-center items-center' style="margin-left: 2rem">
-                    <img src="Assets/Images/book.png" alt="log" class='w-[6rem] object-contain' style="width: 60px; height: 40px" />
+                    <a href="/">
+                        <img src="Assets/Images/book.png" alt="log" class='w-[6rem] object-contain' style="width: 60px; height: 40px" />
+                    </a>
                 </div>
                 <ul class="flex flex-1 justify-end items-center">
                     <li class="nav-item active group flex flex-col justify-center items-center">
@@ -56,7 +58,7 @@
                             runat="server" OnClick="ButtonLogout_Click">Logout</asp:LinkButton></li>
                     <li class="nav-item active group flex flex-col justify-center items-center">
                         <div class="group-hover:bg-indigo-600 w-[5px] h-[5px] rounded-full" style="width: 5px; height: 5px"></div>
-                        <asp:LinkButton class="nav-link text-none mx-2 text-sm flex-col uppercase transition-all duration-300" ID="LinkCurrentUserButton"
+                        <asp:LinkButton class="nav-link text-none mx-2 text-sm flex-col uppercase transition-all duration-300 hover:text-indigo-600" ID="LinkCurrentUserButton"
                             runat="server" OnClick="ButtonHelloUser_Click">Hello User</asp:LinkButton></li>
                 </ul>
             </nav>
@@ -102,8 +104,11 @@
                             <asp:LinkButton CssClass="nav-link mx-2 text-none text-sm flex-col uppercase transition-all duration-300 hover:text-indigo-600" ID="LinkAdminBookIssueButton"
                                 runat="server" OnClick="ButtonLinkToAdminBookIssue_Click" Visible="False">Issuing</asp:LinkButton>
                         </li>
-                        <asp:LinkButton CssClass="nav-link mx-2 text-none text-sm flex-col uppercase transition-all duration-300 hover:text-indigo-600" ID="LinkAdminMemberManagementButton"
-                            runat="server" OnClick="ButtonLinkToAdminMemberManagement_Click" Visible="False">Member</asp:LinkButton>
+                        <li class="nav-item active group flex flex-col justify-center items-center">
+                            <div class="group-hover:bg-indigo-600 w-[5px] h-[5px] rounded-full" style="width: 5px; height: 5px"></div>
+                            <asp:LinkButton CssClass="nav-link mx-2 text-none text-sm flex-col uppercase transition-all duration-300 hover:text-indigo-600" ID="LinkAdminMemberManagementButton"
+                                runat="server" OnClick="ButtonLinkToAdminMemberManagement_Click" Visible="False">Member</asp:LinkButton>
+                        </li>
                     </ul>
                 </div>
             </div>

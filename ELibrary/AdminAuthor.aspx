@@ -22,7 +22,7 @@
 
                         <div class="flex">
                             <div class="w-full text-center">
-                                <h4>Author Details</h4>
+                                <h4 class="text-3xl font-extrabold">Author Details</h4>
                             </div>
                         </div>
 
@@ -85,7 +85,7 @@
                         <div class="flex">
                             <div class="w-full">
                                 <div class="text-center">
-                                    <h4>Author List</h4>
+                                    <h4 class="text-3xl font-extrabold">Author List</h4>
                                 </div>
                             </div>
                         </div>

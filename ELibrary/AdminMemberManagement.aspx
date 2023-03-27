@@ -23,7 +23,7 @@
 
                         <div class="flex">
                             <div class="w-full text-center">
-                                <h4>Member Detail</h4>
+                                <h4 class="text-3xl font-extrabold">Member Detail</h4>
                             </div>
                         </div>
 
@@ -196,7 +196,7 @@
                         <div class="flex">
                             <div class="w-full">
                                 <div class="text-center">
-                                    <h4>Member List</h4>
+                                    <h4 class="text-3xl font-extrabold">Member List</h4>
                                 </div>
                             </div>
                         </div>
