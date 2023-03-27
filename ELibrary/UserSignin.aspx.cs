@@ -42,12 +42,10 @@ namespace ELibrary
 				{
 					while (dataReader.Read())
 					{
-
-						Session["username"] = dataReader.GetValue(8);
-						Session["fullname"] = dataReader.GetValue(0);
+						Session["username"] = dataReader.GetValue(0);
+						Session["fullname"] = dataReader.GetValue(1);
 						Session["role"] = "user";
 						Session["status"] = dataReader.GetValue(10).ToString();
-
 					}
 
 					Response.Redirect("HomePage.aspx");
