@@ -7,18 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
 
     <%-- Bootstrap --%>
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link
-        href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
-        rel="stylesheet" />
+    <!--<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />-->
     <%-- Data tables --%>
     <link href="datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
     <%-- Font awesome --%>
-    <link href="fontawesome/css/all.css" rel="stylesheet" />
+    <!--<link href="fontawesome/css/all.css" rel="stylesheet" /> -->
     <%-- jQuery --%>
     <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
     <%-- Proper --%>
@@ -26,7 +21,13 @@
     <%-- Bootstrap JS --%>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <%-- Custom Style --%>
+    <script src="datatables/js/jquery.dataTables.min.js"></script>
+    <link
+        href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
+        rel="stylesheet" />
     <link href="Assets/Css/Style.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
