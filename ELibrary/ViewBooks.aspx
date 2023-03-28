@@ -43,10 +43,11 @@
                             </div>
                         </div>
 
+
                         <div class="flex mt-4">
                             <asp:SqlDataSource ID="SqlBookInventoryDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:elibraryDBConnectionString %>" SelectCommand="SELECT * FROM [book_master_tbl]"></asp:SqlDataSource>
                             <div class="w-full">
-                                <asp:GridView class="w-full mt-8 inline-block table-bordered table table-striped" ID="GridBookInventoryView" runat="server" AutoGenerateColumns="False" DataSourceID="SqlBookInventoryDataSource" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                <asp:GridView DataKeyNames="book_id" class="w-full mt-8 inline-block table-bordered table table-striped" ID="GridBookInventoryView" runat="server" AutoGenerateColumns="False" DataSourceID="SqlBookInventoryDataSource" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="GridBookInventoryView_RowCommand">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <Columns>
                                         <asp:BoundField DataField="book_id" HeaderText="ID" SortExpression="book_id" />
@@ -106,6 +107,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="IssueButton" Text="Request Issue" runat="server" CommandName="Issue" CommandArgument='<%# Eval("book_id") %>' />
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>
