@@ -133,7 +133,7 @@
                         </div>
 
                         <div class="flex mt-4">
-                            <asp:SqlDataSource ID="SqlBookIssueDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:elibraryDBConnectionString %>' SelectCommand="SELECT * FROM [book_issue_tbl]"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="SqlBookIssueDataSource" runat="server" ConnectionString='<%$ ConnectionStrings:elibraryDBConnectionString %>' SelectCommand="SELECT m.[member_id], [full_name] as [member_name], b.[book_id], [book_name], [issue_date], [due_date]  FROM [book_issue_tbl] i inner join [book_master_tbl] b on b.book_id=i.book_id inner join [member_master_tbl] m on m.member_id=i.member_id;"></asp:SqlDataSource>
                             <div class="w-full">
                                 <asp:GridView class="w-full text-center table-bordered table table-striped" OnRowDataBound="GridBookIssueView_OnRowBound" ID="GridBookIssueView" runat="server" AutoGenerateColumns="False" DataSourceID="SqlBookIssueDataSource" CellPadding="4" ForeColor="#333333" GridLines="None">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />

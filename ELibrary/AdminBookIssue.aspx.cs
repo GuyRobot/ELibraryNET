@@ -106,13 +106,11 @@ namespace ELibrary
 				}
 
 				SqlCommand command = new SqlCommand("INSERT INTO book_issue_tbl" +
-													"(member_id, member_name, book_id, book_name, issue_date, due_date) VALUES" +
-													"(@member_id, @member_name, @book_id, @book_name, @issue_date, @due_date)", sqlConnection);
+													"(member_id, book_id, issue_date, due_date) VALUES" +
+													"(@member_id, @book_id, @issue_date, @due_date)", sqlConnection);
 
 				command.Parameters.AddWithValue("@member_id", TextMemberIDBox.Text.Trim());
-				command.Parameters.AddWithValue("@member_name", TextMemberNameBox.Text.Trim());
 				command.Parameters.AddWithValue("@book_id", TextBookIDBox.Text.Trim());
-				command.Parameters.AddWithValue("@book_name", TextBookNameBox.Text.Trim());
 				command.Parameters.AddWithValue("@issue_date", TextIssueDateBox.Text.Trim());
 				command.Parameters.AddWithValue("@due_date", TextDueDateBox.Text.Trim());
 

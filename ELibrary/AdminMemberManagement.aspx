@@ -45,7 +45,7 @@
                                         <asp:TextBox CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" ID="TextMemberIDBox" runat="server"
                                             placeholder="ID">
                                         </asp:TextBox>
-                                        <asp:LinkButton class="mt-1 px-3 py-2 bg-indigo-600 rounded-lg text-white text-sm" ID="LinkGoButton" runat="server" ValidateRequestMode="Enabled" ViewStateMode="Disabled">
+                                        <asp:LinkButton class="mt-1 px-3 py-2 bg-indigo-600 rounded-lg text-white text-sm" ID="LinkGoButton" runat="server" ValidateRequestMode="Enabled" OnClick="ButtonGo_Click" ViewStateMode="Disabled">
                                             <span class="material-icons text-sm">check_circle</span>
                                         </asp:LinkButton>
                                     </div>

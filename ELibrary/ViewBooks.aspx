@@ -45,7 +45,7 @@
 
 
                         <div class="flex mt-4">
-                            <asp:SqlDataSource ID="SqlBookInventoryDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:elibraryDBConnectionString %>" SelectCommand="SELECT * FROM [book_master_tbl]"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="SqlBookInventoryDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:elibraryDBConnectionString %>" SelectCommand="SELECT * FROM [book_master_tbl] b INNER JOIN [author_master_tbl] a on a.author_id=b.author_id INNER JOIN [publisher_master_tbl] p ON p.publisher_id=b.publisher_id "></asp:SqlDataSource>
                             <div class="w-full">
                                 <asp:GridView DataKeyNames="book_id" class="w-full mt-8 inline-block table-bordered table table-striped" ID="GridBookInventoryView" runat="server" AutoGenerateColumns="False" DataSourceID="SqlBookInventoryDataSource" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="GridBookInventoryView_RowCommand">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />

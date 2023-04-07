@@ -291,7 +291,7 @@
                         </div>
 
                         <div class="flex">
-                            <asp:SqlDataSource ID="SqlBookInventoryDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:elibraryDBConnectionString %>" SelectCommand="SELECT * FROM [book_master_tbl]"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="SqlBookInventoryDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:elibraryDBConnectionString %>" SelectCommand="SELECT * FROM [book_master_tbl] b inner join [author_master_tbl] a on a.author_id=b.author_id inner join [publisher_master_tbl] p on p.publisher_id=b.publisher_id"></asp:SqlDataSource>
                             <div class="w-full">
                                 <asp:GridView class="w-full table-bordered table table-striped" ID="GridBookInventoryView" runat="server" AutoGenerateColumns="False" DataSourceID="SqlBookInventoryDataSource" CellPadding="4" ForeColor="#333333" GridLines="None">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />

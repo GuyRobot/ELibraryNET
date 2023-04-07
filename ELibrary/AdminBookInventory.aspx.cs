@@ -62,20 +62,22 @@ namespace ELibrary
 				{
 					con.Open();
 				}
-				SqlCommand cmd = new SqlCommand("SELECT author_name from author_master_tbl;", con);
+				SqlCommand cmd = new SqlCommand("SELECT * from author_master_tbl;", con);
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
 				DataTable dt = new DataTable();
 				da.Fill(dt);
 				DropDownAuthorNameList.DataSource = dt;
-				DropDownAuthorNameList.DataValueField = "author_name";
+				DropDownAuthorNameList.DataValueField = "author_id";
+				DropDownAuthorNameList.DataTextField = "author_name";
 				DropDownAuthorNameList.DataBind();
 
-				cmd = new SqlCommand("SELECT publisher_name from publisher_master_tbl;", con);
+				cmd = new SqlCommand("SELECT * from publisher_master_tbl;", con);
 				da = new SqlDataAdapter(cmd);
 				dt = new DataTable();
 				da.Fill(dt);
 				DropDownPublisherNameList.DataSource = dt;
-				DropDownPublisherNameList.DataValueField = "publisher_name";
+				DropDownPublisherNameList.DataValueField = "publisher_id";
+				DropDownPublisherNameList.DataTextField = "publisher_name";
 				DropDownPublisherNameList.DataBind();
 
 			}
@@ -109,15 +111,15 @@ namespace ELibrary
 				}
 
 				var command = new SqlCommand("INSERT INTO book_master_tbl " +
-											 "(book_id, book_name, genre, author_name, publisher_name, publish_date, language," +
+											 "(book_id, book_name, genre, author_id, publisher_id, publish_date, language," +
 											 "edition, book_cost, no_of_pages, book_description, actual_stock, current_stock, book_img_link)" +
-											 "VALUES (@book_id, @book_name, @genre, @author_name, @publisher_name, @publish_date, @language," +
+											 "VALUES (@book_id, @book_name, @genre, @author_id, @publisher_id, @publish_date, @language," +
 											 "@edition, @book_cost, @no_of_pages, @book_description, @actual_stock, @current_stock, @book_img_link)", sqlConnection);
 
 				command.Parameters.AddWithValue("@book_id", TextBookIdBox.Text.Trim());
 				command.Parameters.AddWithValue("@book_name", TextBookNameBox.Text.Trim());
-				command.Parameters.AddWithValue("@author_name", DropDownAuthorNameList.SelectedItem.Value);
-				command.Parameters.AddWithValue("@publisher_name", DropDownPublisherNameList.SelectedItem.Value);
+				command.Parameters.AddWithValue("@author_id", DropDownAuthorNameList.SelectedItem.Value);
+				command.Parameters.AddWithValue("@publisher_id", DropDownPublisherNameList.SelectedItem.Value);
 				command.Parameters.AddWithValue("@publish_date", TextPublishDateBox.Text.Trim());
 				command.Parameters.AddWithValue("@language", DropDownLanguageList.SelectedItem.Value);
 				command.Parameters.AddWithValue("@edition", TextEditionBox.Text.Trim());
@@ -132,12 +134,13 @@ namespace ELibrary
 				command.ExecuteNonQuery();
 				sqlConnection.Close();
 				GridBookInventoryView.DataBind();
-
+				Response.Write("<script>alert('Add book succeed');</script>");
+				ClearForm();
 			}
 			catch (Exception e)
 			{
 				Console.WriteLine(e);
-
+				Response.Write("<script>alert('Failed to add book');</script>");
 			}
 		}
 
@@ -154,7 +157,7 @@ namespace ELibrary
 					}
 
 					var command = new SqlCommand("UPDATE book_master_tbl SET " +
-												 "book_name=@book_name, genre=@genre, author_name=@author_name, publisher_name=@publisher_name, " +
+												 "book_name=@book_name, genre=@genre, author_id=@author_id, publisher_id=@publisher_id, " +
 												 "publish_date= @publish_date, language=@language, " +
 												 "edition=@edition, book_cost=@book_cost, no_of_pages=@no_of_pages, book_description=@book_description, " +
 												 "actual_stock=@actual_stock, current_stock=@current_stock, book_img_link=@book_img_link " +
@@ -172,8 +175,8 @@ namespace ELibrary
 
 					command.Parameters.AddWithValue("@book_id", TextBookIdBox.Text.Trim());
 					command.Parameters.AddWithValue("@book_name", TextBookNameBox.Text.Trim());
-					command.Parameters.AddWithValue("@author_name", DropDownAuthorNameList.SelectedItem.Value);
-					command.Parameters.AddWithValue("@publisher_name", DropDownPublisherNameList.SelectedItem.Value);
+					command.Parameters.AddWithValue("@author_id", DropDownAuthorNameList.SelectedItem.Value);
+					command.Parameters.AddWithValue("@publisher_id", DropDownPublisherNameList.SelectedItem.Value);
 					command.Parameters.AddWithValue("@publish_date", TextPublishDateBox.Text.Trim());
 					command.Parameters.AddWithValue("@language", DropDownLanguageList.SelectedItem.Value);
 					command.Parameters.AddWithValue("@edition", TextEditionBox.Text.Trim());
@@ -188,7 +191,7 @@ namespace ELibrary
 					command.ExecuteNonQuery();
 					connection.Close();
 					GridBookInventoryView.DataBind();
-
+					Response.Write("<script>alert('Update book succeed');</script>");
 
 				}
 				catch (Exception e)
@@ -199,7 +202,7 @@ namespace ELibrary
 			}
 			else
 			{
-
+				Response.Write("<script>alert('Book does not exist');</script>");
 			}
 		}
 
@@ -217,6 +220,11 @@ namespace ELibrary
 				command.ExecuteNonQuery();
 				sqlConnection.Close();
 				GridBookInventoryView.DataBind();
+				Response.Write("<script>alert('Delete book succeed');</script>");
+			}
+			else
+			{
+				Response.Write("<script>alert('Book does not exist');</script>");
 			}
 		}
 
@@ -308,8 +316,26 @@ namespace ELibrary
 			}
 			catch (Exception ex)
 			{
-
+				Response.Write("<script>alert('Invalid Book ID');</script>");
 			}
+		}
+
+		private void ClearForm()
+		{
+			TextBookIdBox.Text = string.Empty;
+			TextBookNameBox.Text = string.Empty;
+			DropDownLanguageList.SelectedIndex = 0;
+			DropDownAuthorNameList.SelectedIndex = 0;
+			DropDownPublisherNameList.SelectedIndex = 0;
+			ListGenreBox.SelectedIndex = -1;
+			TextPublishDateBox.Text = string.Empty;
+			TextEditionBox.Text = string.Empty;
+			TextBookCostBox.Text = string.Empty;
+			TextPagesBox.Text = string.Empty;
+			TextActualStockBox.Text = string.Empty;
+			TextBookDescriptionBox.Text = string.Empty;
+
+			TextBookIdBox.Focus();
 		}
 
 	}

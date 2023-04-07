@@ -29,8 +29,7 @@ namespace ELibrary
 					connection.Open();
 				}
 
-				SqlCommand sqlCommand = new SqlCommand("SELECT * FROM member_master_tbl" +
-													   "WHERE member_id=@member_id;", connection);
+				SqlCommand sqlCommand = new SqlCommand("SELECT * FROM member_master_tbl WHERE member_id=@member_id;", connection);
 				sqlCommand.Parameters.AddWithValue("@member_id", TextMemberIDBox.Text.Trim());
 
 				SqlDataReader reader = sqlCommand.ExecuteReader();
