@@ -70,3 +70,23 @@ alter table book_master_tbl add constraint fk_book_master_publisher foreign key 
 -- Book issue constraint
 alter table book_issue_tbl add constraint fk_book_issue_member foreign key (member_id) references member_master_tbl(member_id) on delete cascade;
 alter table book_issue_tbl add constraint fk_book_issue_book foreign key (book_id) references book_master_tbl(book_id) on delete cascade;
+
+alter table book_request_issue_tbl add constraint fk_book_request_issue_book foreign key (book_id) references book_master_tbl(book_id) on delete cascade;
+
+drop procedure approve_issue_request;
+GO;
+create procedure approve_issue_request
+@member_id nvarchar(10), @book_id nvarchar(10)
+as
+begin
+	insert into book_issue_tbl values(@member_id, @book_id, CAST(GETDATE() AS date), CAST(DATEADD(day, 7, GETDATE()) as date)); -- Insert into book_issue_tbl with due date is 7 days from now
+	delete from book_issue_request_tbl where member_id=@member_id AND book_id=@book_id;
+end
+GO;
+
+insert into book_issue_request_tbl values('001', 'b005');
+delete from book_issue_request_tbl where book_id='b002';
+
+exec approve_issue_request @member_id='001', @book_id='b003';
+
+delete from book_issue_tbl;
