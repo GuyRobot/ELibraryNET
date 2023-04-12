@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminMemberManagement.aspx.cs" Inherits="ELibrary.AdminIssueRequest" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminMemberManagement.aspx.cs" Inherits="ELibrary.AdminMemberManagement" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
@@ -46,7 +46,7 @@
                                             placeholder="ID">
                                         </asp:TextBox>
                                         <asp:LinkButton class="mt-1 px-3 py-2 bg-indigo-600 rounded-lg text-white text-sm" ID="LinkGoButton" runat="server" ValidateRequestMode="Enabled" OnClick="ButtonGo_Click" ViewStateMode="Disabled">
-                                            <span class="material-icons text-sm">check_circle</span>
+                                            Go
                                         </asp:LinkButton>
                                     </div>
                                 </div>
@@ -57,7 +57,7 @@
                                 <label class="block text-sm font-medium text-gray-700">Full Name</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" ID="TextFullNameBox" runat="server"
-                                        placeholder="Book ID" ReadOnly="True">
+                                        placeholder="Full Name" ReadOnly="True">
                                     </asp:TextBox>
                                 </div>
                             </div>
@@ -69,16 +69,16 @@
                                     <div class="flex space-x-2">
 
                                         <asp:TextBox CssClass="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:border-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-white border px-3 py-2 text-base leading-4 m-0 outline-none" ID="TextAccountStatusBox" runat="server"
-                                            placeholder="Status">
+                                            placeholder="Status" ReadOnly="true">
                                         </asp:TextBox>
 
-                                        <asp:LinkButton class="mt-1 px-3 py-2 bg-indigo-600 rounded-lg text-white text-sm" runat="server" Text="A">
+                                        <asp:LinkButton class="mt-1 px-3 py-2 bg-indigo-600 rounded-lg text-white text-sm" OnClick="ButtonActiveMember_Click" runat="server" Text="A">
                                             <span class="material-icons text-sm">check_circle</span>
                                         </asp:LinkButton>
-                                        <asp:LinkButton class="mt-1 px-3 py-2 bg-indigo-600 rounded-lg text-white text-sm" runat="server" Text="P">
+                                        <asp:LinkButton class="mt-1 px-3 py-2 bg-indigo-600 rounded-lg text-white text-sm" OnClick="ButtonPendingMember_Click" runat="server" Text="P">
                                             <span class="material-icons-outlined material-icons text-sm">pause_circle</span>
                                         </asp:LinkButton>
-                                        <asp:LinkButton class="mt-1 px-3 py-2 bg-indigo-600 rounded-lg text-white text-sm" runat="server" Text="D">
+                                        <asp:LinkButton class="mt-1 px-3 py-2 bg-indigo-600 rounded-lg text-white text-sm" OnClick="ButtonDeActiveMember_Click" runat="server" Text="D">
                                             <span class="material-icons-outlined material-icons text-sm">timelapse</span>                                  
                                         </asp:LinkButton>
                                     </div>
