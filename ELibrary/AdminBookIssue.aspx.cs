@@ -17,6 +17,13 @@ namespace ELibrary
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			// Not admin
+			if (!Session["role"]?.Equals("admin") ?? true)
+			{
+				Response.Redirect("AdminLogin.aspx");
+				return;
+			}
+
 			GridBookIssueView.DataBind();
 		}
 

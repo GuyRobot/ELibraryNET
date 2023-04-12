@@ -177,7 +177,7 @@
 
                         <div class="flex space-x-3 mt-3">
                             <div class="w-full mx-auto">
-                                <asp:Button class="cursor-pointer px-8 py-3 bg-indigo-600 rounded-lg text-white text-sm font-extrabold" ID="DeleteButton" runat="server" Text="Delete" />
+                                <asp:Button class="cursor-pointer px-8 py-3 bg-indigo-600 rounded-lg text-white text-sm font-extrabold" ID="DeleteButton" OnClick="ButtonDeleteMember_Click" runat="server" Text="Delete" />
                             </div>
                         </div>
                     </div>

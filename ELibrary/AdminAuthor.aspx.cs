@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.AspNet.FriendlyUrls;
 
 namespace ELibrary
 {
@@ -16,6 +17,11 @@ namespace ELibrary
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			if (!Session["role"]?.Equals("admin") ?? true)
+			{
+				Response.Redirect("AdminLogin.aspx");
+				return;
+			}
 		}
 
 		protected void ButtonAdd_Click(object sender, EventArgs e)

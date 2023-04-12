@@ -42,6 +42,11 @@ namespace ELibrary
 				{
 					while (dataReader.Read())
 					{
+						if (dataReader.GetValue(10).ToString() == "deactive")
+						{
+							Response.Write("<script>alert('Account has been deactived');</script>");
+							return;
+						}
 						Session["username"] = dataReader.GetValue(0);
 						Session["fullname"] = dataReader.GetValue(1);
 						Session["role"] = "user";
