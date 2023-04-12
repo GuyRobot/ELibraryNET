@@ -285,8 +285,8 @@ namespace ELibrary
 					TextIssuedBox.Text = "" + (Convert.ToInt32(dt.Rows[0]["actual_stock"].ToString()) - Convert.ToInt32(dt.Rows[0]["current_stock"].ToString()));
 
 					DropDownLanguageList.SelectedValue = dt.Rows[0]["language"].ToString().Trim();
-					DropDownPublisherNameList.SelectedValue = dt.Rows[0]["publisher_name"].ToString().Trim();
-					DropDownAuthorNameList.SelectedValue = dt.Rows[0]["author_name"].ToString().Trim();
+					DropDownPublisherNameList.SelectedValue = dt.Rows[0]["publisher_id"].ToString().Trim();
+					DropDownAuthorNameList.SelectedValue = dt.Rows[0]["author_id"].ToString().Trim();
 
 					ListGenreBox.ClearSelection();
 					string[] genre = dt.Rows[0]["genre"].ToString().Trim().Split(',');

@@ -37,6 +37,10 @@ namespace ELibrary
 
 		}
 
+		protected void ButtonLinkAdminIssueRequest_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("AdminIssueRequest.aspx");
+		}
 
 		protected void LinkViewBookButton_Click(object sender, EventArgs e)
 		{
@@ -110,6 +114,7 @@ namespace ELibrary
 			LinkAuthorAdminButton.Visible = false;
 			LinkAdminInventoryButton.Visible = false;
 			LinkAdminMemberManagementButton.Visible = false;
+			LinkAdminIssueRequest.Visible = false;
 			LinkAdminBookIssueButton.Visible = false;
 			LinkAdminPublishmentButton.Visible = false;
 		}
@@ -127,6 +132,7 @@ namespace ELibrary
 			LinkAuthorAdminButton.Visible = false;
 			LinkAdminInventoryButton.Visible = false;
 			LinkAdminMemberManagementButton.Visible = false;
+			LinkAdminIssueRequest.Visible = false;
 			LinkAdminBookIssueButton.Visible = false;
 			LinkAdminPublishmentButton.Visible = false;
 		}
@@ -143,6 +149,7 @@ namespace ELibrary
 			LinkAdminAuthorButton.Visible = false;
 			LinkAuthorAdminButton.Visible = true;
 			LinkAdminInventoryButton.Visible = true;
+			LinkAdminIssueRequest.Visible = true;
 			LinkAdminMemberManagementButton.Visible = true;
 			LinkAdminBookIssueButton.Visible = true;
 			LinkAdminPublishmentButton.Visible = true;
